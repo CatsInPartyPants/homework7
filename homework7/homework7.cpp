@@ -144,9 +144,12 @@ int main()
 
         //task 8
 
+    /*
     cout << "Выберете фигуру от 1 до 10 ->";
     int user_ch;
     cin >> user_ch;
+
+    while(user_ch != -1){
     switch (user_ch) {
     case 1:
         for (int j = 7, spaces = 0; j >= 0; j--, spaces++) {
@@ -204,6 +207,134 @@ int main()
         }
         cout << endl;
         break;
+    case 6:
+        for (int i = 0, stars = 1, spaces=8; i < 10; i++)
+        {
+            if (i < 4) {
+                cout << string(stars, '*') << string(spaces, ' ') << string(stars, '*') << endl;
+                stars++;
+                spaces -= 2;
+            }
+            else if (i == 4) {
+                stars = 5;
+                cout << string(stars, '*') << string(stars, '*') << endl;
+                spaces = 0;
+            }
+            else {
+                stars--;
+                spaces+=2;
+                cout << string(stars, '*') << string(spaces, ' ') << string(stars, '*') << endl;
+            }
+
+        }
+        break;
+    case 7:
+        for (int i = 0, stars = 1; i <= 10; i++)
+        {
+            if (i <= 4) {
+                cout << string(stars, '*') << endl;
+                stars++;
+            }
+            else if (i == 5) {
+                cout << string(6, '*')<< endl;
+            }
+            else {
+                stars--;
+                cout << string(stars, '*') << endl;
+            }
+        }
+        break;
+    case 8:
+        for (int i = 0, stars = 1, spaces = 9; i < 10; i++)
+        {
+            if (i <= 3) {
+                cout << string(spaces, ' ') << string(stars, '*') << endl;
+                spaces--;
+                stars++;
+            }
+            else if (i == 4) {
+                spaces--;
+                cout << string(spaces, ' ') << string(6, '*') << endl;
+                spaces++;
+            }
+            else {
+                cout << string(spaces, ' ') << string(stars, '*') << endl;
+                spaces++;
+                stars--;
+            }
+        }
+        break;
+    case 9:
+        for(int i = 10; i>0;i--)
+        {
+            cout << string(i, '*') << endl;
+        }
+        break;
+    case 10:
+        for (int i = 1, spaces = 9; i <= 10; i++, spaces--) {
+            cout << string(spaces, ' ') << string(i, '*') << endl;
+        }
+    default:
+        cout << "Выбрано неверное значение меню." << endl;
+    }
+    cout << "Выберете фигуру от 1 до 10 (-1 для выхода) -> ";
+    cin >> user_ch;
+    system("CLS");
+    }
+    */
+
+    //task 9
+
+    int user_number_for_check;
+    cout << "Введите число->";
+    cin >> user_number_for_check;
+    double count = 0, summ = 0, sr_ar = 0, zeros = 0;
+    while (user_number_for_check != 0) {
+        int temp = 0;
+        temp = user_number_for_check % 10;
+        summ += temp;
+        count++;
+        if (temp == 0) zeros++;
+        user_number_for_check /= 10;
+    }
+    sr_ar = summ / count;
+
+    int user_choise = 0;
+
+    while (user_choise != -1) {
+        cout << "Что вы хотите узнать?\n";
+        cout << "1 - Количество цифр в числе\n";
+        cout << "2 - Сумма цифр в числе\n";
+        cout << "3 - Среднее арифметическое цифр числа\n";
+        cout << "4 - Количество нулей в числе\n";
+
+        cin >> user_choise;
+        system("CLS");
+        switch (user_choise)
+        {
+        case 1:
+            
+            cout << "Количество цифр в числе " << count << endl;
+            break;
+        case 2:
+            
+            cout << "Сумма цифр в числе " << summ << endl;
+            break;
+        case 3:
+            
+            cout << "Среднее арифметическое цифр в числе " << sr_ar << endl;
+            break;
+        case 4:
+          
+            cout << "Количество нулей в числе " << zeros << endl;
+            break;
+        default:
+            cout << "Выбран не верный пункт меню." << endl;
+        }
+
+        cout << "Выберете следующий пункт меню(для выхода -1) -> ";
+        
+        
     }
 }
 
